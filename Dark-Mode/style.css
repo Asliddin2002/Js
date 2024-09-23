@@ -1,0 +1,86 @@
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  --background-color: white;
+  --orange-color: orangered;
+  --text-color: white;
+  --transition: 1s;
+  --header-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 30px;
+  color: var(--header-color);
+  background-color: var(--background-color);
+  transition: background-color, color, var(--transition) ease;
+  overflow: hidden;
+}
+body.dark {
+  --background-color: black;
+  --orange-color: orange;
+  --text-color: black;
+  --header-color: white;
+}
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: var(--orange-color);
+  border-radius: 5px;
+  transition: transform, fill, var(--transition) ease;
+  transform: scale(1);
+  cursor: pointer;
+  color: var(--text-color);
+  font-weight: bold;
+}
+.toggle-btn:hover,
+.toggle-btn:focus {
+  transform: scale(1.1);
+}
+
+.toggle-btn svg {
+  width: 30px;
+  transition: fill, var(--transition) ease;
+  fill: var(--text-color);
+}
+.svg-icons-container {
+  --rotation: 0;
+  position: absolute;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(calc(var(--rotation) * 1deg));
+  transition: transform, var(--transition) ease;
+}
+
+.svg-icons-container svg {
+  width: 50px;
+  position: absolute;
+  fill: var(--orange-color);
+}
+
+.sun {
+  top: 3%;
+}
+.moon {
+  bottom: 3%;
+  opacity: 0;
+}
+.dark .sun {
+  opacity: 0;
+}
+.dark .moon {
+  opacity: 1;
+}
